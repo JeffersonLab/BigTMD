@@ -1,0 +1,8 @@
+*.so
+*.pyc
+.ipynb_checkpoints/*
+.amps/*
+.form/*
+*.swp
+data/*
+more/*
