@@ -27,7 +27,7 @@ import NLO.Pg.fchn6C,NLO.Ppp.fchn6C
 import lhapdf
 
 pdf=lhapdf.mkPDF('CJ15nlo')
-ff=lhapdf.mkPDF('CJ15nlo')
+ff=lhapdf.mkPDF('dsshpNLO')
 #ff=lhapdf.mkPDFs('DSShpnlo')
 zero=1e-7
 alfa=1/137.036
@@ -136,6 +136,8 @@ def get_dxsec(xi,s23,x,z,Q,qT,y,E,tar,had,order,part=None,z1=1,z2=0):
     
     # get ffs
     # g:0,u:1,ub:2,d:3,db:4,s:5,sb:6,c:7,cb:8,b:9,bb:10
+    if zeta0>0.93: return 0
+    if zeta>0.93: return 0
     d0=np.array([ff.xfxQ2(i,zeta0,mu2)/zeta0 for i in iflav])
     d =np.array([ff.xfxQ2(i,zeta,mu2)/zeta for i in iflav])
 
