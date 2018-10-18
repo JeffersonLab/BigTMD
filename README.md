@@ -1,5 +1,5 @@
 # BigTMD
-NLO calculation for the FO
+NLO calculation for the Fixed Order
 
 
 ## getting started
