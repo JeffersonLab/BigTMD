@@ -1,5 +1,5 @@
 # BigkT
-Order &alpha; calculation for the 
+Order &alpha<sub>s</sub><sup>2</sup>; calculation for the 
 
 
 ## getting started
