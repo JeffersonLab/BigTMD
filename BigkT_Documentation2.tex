@@ -47,6 +47,17 @@
 \centerline{\today}
 \vspace{.25in}
 %%%%%%%%%%%%%%%%
+
+This documentation explains how to generate the SIDIS cross section:
+\begin{equation}
+\frac{\diff{\sigma}{}}{\diff{x} \diff{Q^2} \diff{z} \diff{|\T{P}{}|} }
+\end{equation}
+in units of GeV$^{-5}$. Here, $\T{P}{}$ is the produced hadron's transverse momentum in the 
+Breit frame and $x$, $z$, and $Q^2$ are the usual kinematical variables. 
+
+\begin{itemize}
+\item \underline{Installation and Example}:
+\end{itemize}
 \begin{enumerate}
 
 \item Install Anaconda with python2 in your system which you can get for free at
@@ -89,9 +100,56 @@
 
 \item Use ``driver.py" as an example. You can run it simply like 
       \rquote{\$ ./driver.py  }
-
-
 \end{enumerate}
 
+\begin{itemize}
+\item \underline{Description}:
+\end{itemize}
+
+In the above, driver.py calls a function sidis.get\_xsec from sidis.py. In turn, sidis.py imports 
+LO.py and the contents of $P_g$ and $P_{pp}$ in the NLO directory.  LO.py contains the leading order 
+cross section directly, while $P_g$ and $P_{pp}$ contain all channels and charge configurations for the next-to-leading order 
+ cross section. (See {\color{red} citation} for explanations of symbols, including $P_g$ and $P_{pp}$.) These functions are of the form 
+ $$
+ {\text{ fchn(channel)(charge configuration)}} .
+ $$
+Channels refers to the combination of incoming and outgoing parton identities:
+\begin{align}
+ &{}1 V: A \,  g  \to(q\to h) \, qb  &{} R: A \, g  &{}  \to(q\to h)  qb\, g  \\
+ &{}2 V: A \,  q \to(q\to h) g   &{}R: A \, q  &{}\to(q\to h) \, g  \, g   \\
+ &{}                                    &{} R: A \, q  &{} \to(q \to h) \, q' \, qb' \\
+ &{} 3 V: A q  \to(g\to h) q   &{} R: A \, q  &{} \to(g \to h) \, q \, g   \\
+ &{}4                                      &{} R: A \,  g  &{}\to(g \to h) \, q \, qb  \\
+ &{}5                                      &{}R: A \, q  &{}\to(qb\to h)\, q \, qb  \\
+ &{}6                                     &{} R: A \, q  &{}\to(q' \to h)\, q \, qb  \, ,
+\end{align}
+where $A$ is the virtual photon, $g$ is a gluon, $q$ and $q'$ denote different quark flavors, and $qb$ and $qb'$ are the antiparticles of $q$ and $q'$ respectively. 
+$f \to h$ means it is the parton of flavor $f$ that hadronizes. $V$ and $R$ stand for ``real'' and ``virtual.'' So, for example, $3 R$ refers to graphs with two unobserved 
+real emissions where a target quark leads to a hadronizing final state gluon and an unobserved quark and gluon. The correspondence between 
+real and virtual graphs is in the sense of Table I of {\color{red} citation}.
+
+By ``charge configuration'' we mean whether the photon couples directly to the charge of a target (anti)quark. A charge configuration $A$ is when the photon 
+couples directly to the quark flavor in the pdf, configuration $C$ is when it does not, and $B$ is an interference between two such cases. See Fig.\ref{chgconf} for examples.
+%---------------------
+\begin{figure}[t]
+\centering
+\centering
+  \begin{tabular}{c@{\hspace*{.01mm}}c@{\hspace*{.01mm}}c}
+    \includegraphics[scale=0.5]{chgA}
+    \hspace{0.5cm}
+    &
+    \hspace{0.5cm}
+    \includegraphics[scale=0.5]{chgB}
+    &
+    \hspace{0.5cm}
+    \includegraphics[scale=0.5]{chgC}
+  \\
+  (a) & (b) & (c)
+  \end{tabular}
+\caption{Examples of charge configurations $A$, $B$, and $C$. The solid black dot denotes the hadronizing parton.  
+}
+\label{chgconf}
+\end{figure}
+%---------------------
 
 \end{document}
