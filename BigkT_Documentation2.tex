@@ -191,9 +191,6 @@ between two such cases. See Fig.\ref{chgconf} for examples.
 \label{t.channels}
 \end{table}
 
-
-
-
 %---------------------
 \begin{figure}[t]
 \centering
@@ -215,5 +212,28 @@ between two such cases. See Fig.\ref{chgconf} for examples.
 \label{chgconf}
 \end{figure}
 %---------------------
+
+\begin{itemize}
+\item \underline{Symbolic Calculation}:
+\end{itemize}
+The code for generating the cross section was obtained 
+by directly evaluating the Feynman graphs involved at order $\alpha_s^2$, 
+using utilities like qgraf, FORM, and Mathematica ({\color{red} citations}).
+All of necessary codes and scripts are available ({\color{red} here}). 
+
+The workflow showing their usage is shown in Fig.~\ref{workflow}
+%---------------------
+\begin{figure}[t]
+\centering
+    \includegraphics[scale=0.5]{workflow_master}
+    \hspace{0.5cm}
+\caption{Flow of tasks in the construction of cross section expressions.  
+}
+\label{workflow}
+\end{figure}
+%---------------------
+
+
+
 
 \end{document}
