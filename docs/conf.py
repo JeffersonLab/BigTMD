@@ -121,8 +121,7 @@ latex_elements = {
 
     # Additional stuff for the LaTeX preamble.
     #
-    # 'preamble': '',
-
+    #'preamble': r'''''',
     # Latex figure (float) alignment
     #
     # 'figure_align': 'htbp',
@@ -135,6 +134,8 @@ latex_documents = [
     (master_doc, 'BigkT.tex', u'BigkT Documentation',
      u'N. Sato', 'manual'),
 ]
+
+latex_additional_files = ["headers.sty"]
 
 
 # -- Options for manual page output ------------------------------------------

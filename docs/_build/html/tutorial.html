@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tutorial &mdash; BigkT 0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Publications" href="publications.html" />
+    <link rel="prev" title="BigkT" href="index.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> BigkT
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">BigkT</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#details">Details</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="publications.html">Publications</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BigkT</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Tutorial</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/tutorial.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tutorial">
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
+<p>This documentation explains how to generate the SIDIS cross section:</p>
+<div class="math notranslate nohighlight">
+\[\frac{d\sigma}{dx dQ^2 dz dp_{\rm T}}\]</div>
+<p>in units of <span class="math notranslate nohighlight">\({\rm GeV}^{-5}\)</span>. Here, <span class="math notranslate nohighlight">\(p_{\rm T}\)</span> is the produced
+hadron’s transverse momentum in the Breit frame and <span class="math notranslate nohighlight">\(x,z,Q^2\)</span> are the
+usual kinematical variables.</p>
+<div class="section" id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Install Anaconda with python2 in your system which you can get for free at
+<a class="reference external" href="https://www.anaconda.com">https://www.anaconda.com</a></li>
+<li>Install lhapdf in your system.</li>
+<li>Open up a terminal. Below <code class="docutils literal notranslate"><span class="pre">$</span></code> denotes the terminal prompt.</li>
+<li>You will need to make lhapdf reachable from python. For that you need
+to set the environment variables <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> and
+<code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code>. For bash it can be done as</li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>&lt;path2lhapdf&gt;/bin:<span class="nv">$PATH</span>
+<span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$PYTHONPATH</span>:path2lhapdf/lib/python2.7/site-packages/
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>&lt;lhapdf&gt;/lib
+</pre></div>
+</div>
+<ul class="simple">
+<li>Alternatively you can place these lines in your <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file</li>
+<li>Clone the repository from github</li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:JeffersonLab/BigTMD.git
+</pre></div>
+</div>
+<ul class="simple">
+<li>Go inside the repo directory</li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> BigTMD
+</pre></div>
+</div>
+<ul class="simple">
+<li>Copy the folders <code class="docutils literal notranslate"><span class="pre">lhapdf/dsshpNLO</span></code> and  <code class="docutils literal notranslate"><span class="pre">lhapdf/dsshmNLO</span></code> inside to</li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;path2lhapdf&gt;/share/LHAPDF/
+</pre></div>
+</div>
+<ul class="simple">
+<li>This will allow you to load DSS07 fragmentation functions from lhapdf</li>
+<li>Run the setup script (this takes some time)</li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./setup.py
+</pre></div>
+</div>
+<ul class="simple">
+<li>The script <code class="docutils literal notranslate"><span class="pre">sidis.py</span></code> orchestrates the full NLO calculation
+for a given kinematic point <span class="math notranslate nohighlight">\(x,Q^2,z,q_{\rm T}=p_{\rm T}/z\)</span></li>
+<li>Use <code class="docutils literal notranslate"><span class="pre">driver.py</span></code> as an example. You can run it simply like</li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./driver.py
+</pre></div>
+</div>
+</div>
+<div class="section" id="details">
+<h2>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+<p>In the above, <code class="docutils literal notranslate"><span class="pre">driver.py</span></code> calls a function <code class="docutils literal notranslate"><span class="pre">sidis.get_xsec</span></code> from
+<code class="docutils literal notranslate"><span class="pre">sidis.py</span></code>. In turn, <code class="docutils literal notranslate"><span class="pre">sidis.py</span></code> imports <code class="docutils literal notranslate"><span class="pre">LO.py</span></code> and the contents of
+<span class="math notranslate nohighlight">\(P_g\)</span> and <span class="math notranslate nohighlight">\(P_{pp}\)</span> in the NLO directory.  <code class="docutils literal notranslate"><span class="pre">LO.py</span></code>
+contains the leading order cross section directly, while
+<span class="math notranslate nohighlight">\(P_g\)</span> and <span class="math notranslate nohighlight">\(P_{pp}\)</span> contain all channels
+and charge configurations for the next-to-leading order cross section.
+(See <code class="docutils literal notranslate"><span class="pre">citation</span></code> for explanations of symbols, including
+<span class="math notranslate nohighlight">\(P_g\)</span> and <span class="math notranslate nohighlight">\(P_{pp}\)</span>.) These functions are of the form</p>
+<div class="math notranslate nohighlight">
+\[{\text{ fchn(channel)(charge configuration)}} .\]</div>
+<p>The following table  summarizes the various incoming and outgoing
+parton combinations for the virtual and real contributions.</p>
+<table border="1" class="colwidths-given docutils" id="id1">
+<caption><span class="caption-text">channels index</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">channel</th>
+<th class="head">virtual</th>
+<th class="head">real</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td><span class="math notranslate nohighlight">\(\gamma^*+g  \to(q\to h)+\bar{q}\)</span></td>
+<td><span class="math notranslate nohighlight">\(\gamma^*+g  \to(q\to h)+\bar{q}+g\)</span></td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td><span class="math notranslate nohighlight">\(\gamma^*+q \to(q\to h)+g\)</span></td>
+<td><span class="math notranslate nohighlight">\(\gamma^*+q \to(q\to h)+g+g\)</span></td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td>&#160;</td>
+<td><span class="math notranslate nohighlight">\(\gamma^*+q \to(q \to h)+q'+\bar{q}'\)</span></td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td><span class="math notranslate nohighlight">\(\gamma^*+q \to(g\to h)+q\)</span></td>
+<td><span class="math notranslate nohighlight">\(\gamma^*+q \to(g \to h)+q+g\)</span></td>
+</tr>
+<tr class="row-even"><td>4</td>
+<td>&#160;</td>
+<td><span class="math notranslate nohighlight">\(\gamma^*+g \to(g \to h) +q +\bar{q}\)</span></td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>&#160;</td>
+<td><span class="math notranslate nohighlight">\(\gamma^*+q \to(\bar{q}\to h)+ q + \bar{q}\)</span></td>
+</tr>
+<tr class="row-even"><td>6</td>
+<td>&#160;</td>
+<td><span class="math notranslate nohighlight">\(\gamma^*+q\to(q' \to h)+q+\bar{q}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The <code class="docutils literal notranslate"><span class="pre">channels</span></code> are organized  such that IR singularities of the virtual
+contribution matches with those from the real contributions. <span class="math notranslate nohighlight">\(\gamma^*\)</span> is the
+virtual photon, <span class="math notranslate nohighlight">\(g\)</span> is a gluon, <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(q\)</span> denote different
+quark flavors, and <span class="math notranslate nohighlight">\(\bar{q}\)</span> and <span class="math notranslate nohighlight">\(\bar{q}'\)</span> are the antiparticles
+of <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(q'\)</span> respectively.  <span class="math notranslate nohighlight">\(f \to h\)</span> means it is the
+parton of flavor “math:<cite>f</cite> that hadronizes.  For example,</p>
+<div class="math notranslate nohighlight">
+\[\gamma^*+q \to(g \to h)+q+g\]</div>
+<p>refers to graphs with 3 unobserved real
+emissions where a target quark leads to a hadronizing final state
+gluon and an unobserved quark and gluon. The correspondence between
+real and virtual graphs is in the sense of Table I of <code class="docutils literal notranslate"><span class="pre">citation</span></code>.</p>
+<p>By <code class="docutils literal notranslate"><span class="pre">charge</span> <span class="pre">configuration</span></code> we mean whether the photon couples
+directly to the charge of a target (anti)quark. <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">charge</span> <span class="pre">configuration</span></code>
+<span class="math notranslate nohighlight">\(A\)</span> is when the photon couples directly to the quark flavor in the
+pdf,</p>
+<a class="reference internal image-reference" href="_images/chgA.jpg"><img alt="_images/chgA.jpg" src="_images/chgA.jpg" style="width: 30%;" /></a>
+<p>configuration <span class="math notranslate nohighlight">\(C\)</span> is when it does not,</p>
+<a class="reference internal image-reference" href="_images/chgC.jpg"><img alt="_images/chgC.jpg" src="_images/chgC.jpg" style="width: 30%;" /></a>
+<p>and <span class="math notranslate nohighlight">\(B\)</span> is an interference
+between two such cases. See Fig.``chgcon`` for examples.</p>
+<a class="reference internal image-reference" href="_images/chgB.jpg"><img alt="_images/chgB.jpg" src="_images/chgB.jpg" style="width: 30%;" /></a>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="publications.html" class="btn btn-neutral float-right" title="Publications" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="BigkT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, N. Sato.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
