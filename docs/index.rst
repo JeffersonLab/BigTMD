@@ -37,6 +37,12 @@ Authors
 5. Zhejiang Institute of Modern Physics, Department of Physics, Zhejiang University,
    Hangzhou 310027, China
 
+Acknowledgments
+===============
+The creation of these resources was supported by the U.S. Department of Energy, 
+Office of Science, Office of Nuclear Physics, under Award Number DE-SC0018106.
+
+
 .. image:: ./logos/odu.png
    :width: 30%
 .. image:: ./logos/torino.png
@@ -45,6 +51,9 @@ Authors
    :width: 30%
 .. image:: ./logos/jlab.png
    :width: 30%
+
+
+
 
 
 

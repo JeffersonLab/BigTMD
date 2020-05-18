@@ -9,5 +9,9 @@ Publications
 | **Wang, B. and Gonzalez-Hernandez, J. O. and Rogers, T. C. and Sato, N.**
 | https://inspirehep.net/record/1723777
 
+| 3) *Collinear factorization in wide-angle hadron pair production in $e^+e^-$ annihilation
+| **Moffat, E. and Rogers, T.C. and Sato, N. and Signori, A.**
+| https://inspirehep.net/literature/1752934
+
 
 
